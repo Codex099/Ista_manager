@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/spc/ges.dart';
 import 'package:flutter_application_1/spc/opt.dart';
 import 'package:flutter_application_1/spc/info.dart';
-
+// update version
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
