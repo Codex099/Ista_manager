@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/spc/ges.dart';
 import 'package:flutter_application_1/spc/opt.dart';
 import 'package:flutter_application_1/spc/info.dart';
+import 'package:flutter_application_1/row2/act.dart';
+import 'package:flutter_application_1/row2/stg.dart';
+import 'package:flutter_application_1/row2/edt.dart';
+
 // update version
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class mainpage extends StatelessWidget {
+  const mainpage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +25,16 @@ class HomePage extends StatelessWidget {
           ),
         ),
         centerTitle: true,
+        // leading: Padding(
+        //   padding: const EdgeInsets.all(10),
+        //   child: Image.asset("img/revenir.png"),
+        // ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Image.asset("img/parametres.png"),
+          ),
+        ],
       ),
       body: Container(
         child: Column(
@@ -101,23 +115,53 @@ class HomePage extends StatelessWidget {
               ],
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+              // crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Column(
-                  
-                  children: [
-                    SizedBox(
-                      width: 300,
-                      height: 150,
-                      child: Divider(color: Color.fromARGB(255, 0, 0, 0)),
-                    ),
-                    Text("information"),
-                    SizedBox(height: 40),
-                    Text("stage"),
-                    SizedBox(height: 40),
-                    Text("implois"),
-                    SizedBox(height: 40),
-                  ],
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      SizedBox(
+                        height: 150,
+                        child: Divider(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          endIndent: 60,
+                          indent: 60,
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => edt()),
+                          );
+                        },
+                        child: Text("EDT"),
+                      ),
+                      // SizedBox(height: 40),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => act()),
+                          );
+                        },
+                        child: Text("Actualités"),
+                      ),
+                      // SizedBox(height: 40),
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => stg()),
+                          );
+                        },
+                        child: Text("Stages"),
+                      ),
+                      // SizedBox(height: 40),
+                    ],
+                  ),
                 ),
               ],
             ),
